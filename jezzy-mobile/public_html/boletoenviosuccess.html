@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jezzy</title>
+    <link rel="shortcut icon" href="img/icons/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/jasny-bootstrap/css/jasny-bootstrap.min.css">
+    <link rel="stylesheet" href="css/page/forgot_password_success.css">
+    <script src="js/page/forgot_password.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/jasny-bootstrap/css/jasny-bootstrap.min.css">
+    <script src="lib/jquery/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" href="css/page/base.css">
+    <script src="js/page/configuracao.js"></script>
+    <script src="lib/jquery/jquery-2.1.4.min.js"></script>
+    <script src="lib/jquery/jquery.base64.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/jasny-bootstrap/js/jasny-bootstrap.min.js"></script>
+    <script src="lib/jquery-storage/jquery.cookie.js"></script>
+    <script src="lib/jquery-storage/jquery.storageapi.min.js"></script>
+    <script src="lib/jquery-storage/json2.js"></script>
+    <link rel="stylesheet" href="css/page/forgot_password_success.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="js/page/base.js"></script>
+    <script src="lib/jquery-storage/jquery.storageapi.min.js"></script>
+
+
+</head>
+<body>
+<div class="container">
+    <div class="row rowLogo">
+
+        <div class="col-md-2 pull-left logolateral">
+            <img src="img/icons/Chevron%20dourado.png" onclick="voltar();" class="iconeforgotpassword">
+        </div>
+        <div class="col-md-8 pull-left logocentral">
+            <img src="img/icons/logo_login_fundo_branco.PNG" class="logobackgroundWhite">
+        </div>
+
+    </div>
+    <script>
+        function createToken() {
+            var arraySend = {
+                'secureNumbers': Math.floor(new Date().getTime() / 1000)
+            };
+            var json = JSON.stringify(arraySend);
+            return Base64.encode(json);
+        }
+
+        var Base64 = {
+            _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+            encode: function (input) {
+                var output = "";
+                var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+                var i = 0;
+                input = Base64._utf8_encode(input);
+                while (i < input.length) {
+                    chr1 = input.charCodeAt(i++);
+                    chr2 = input.charCodeAt(i++);
+                    chr3 = input.charCodeAt(i++);
+                    enc1 = chr1 >> 2;
+                    enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+                    enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+                    enc4 = chr3 & 63;
+                    if (isNaN(chr2)) {
+                        enc3 = enc4 = 64;
+                    } else if (isNaN(chr3)) {
+                        enc4 = 64;
+                    }
+                    output = output + this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) + this._keyStr.charAt(enc3) + this._keyStr.charAt(enc4);
+                }
+                return output;
+            },
+            decode: function (input) {
+                var output = "";
+                var chr1, chr2, chr3;
+                var enc1, enc2, enc3, enc4;
+                var i = 0;
+                input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+                while (i < input.length) {
+                    enc1 = this._keyStr.indexOf(input.charAt(i++));
+                    enc2 = this._keyStr.indexOf(input.charAt(i++));
+                    enc3 = this._keyStr.indexOf(input.charAt(i++));
+                    enc4 = this._keyStr.indexOf(input.charAt(i++));
+                    chr1 = (enc1 << 2) | (enc2 >> 4);
+                    chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+                    chr3 = ((enc3 & 3) << 6) | enc4;
+                    output = output + String.fromCharCode(chr1);
+                    if (enc3 != 64) {
+                        output = output + String.fromCharCode(chr2);
+                    }
+                    if (enc4 != 64) {
+                        output = output + String.fromCharCode(chr3);
+                    }
+                }
+                output = Base64._utf8_decode(output);
+                return output;
+            },
+            _utf8_encode: function (string) {
+                string = string.replace(/\r\n/g, "\n");
+                var utftext = "";
+                for (var n = 0; n < string.length; n++) {
+                    var c = string.charCodeAt(n);
+                    if (c < 128) {
+                        utftext += String.fromCharCode(c);
+                    }
+                    else if ((c > 127) && (c < 2048)) {
+                        utftext += String.fromCharCode((c >> 6) | 192);
+                        utftext += String.fromCharCode((c & 63) | 128);
+                    }
+                    else {
+                        utftext += String.fromCharCode((c >> 12) | 224);
+                        utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+                        utftext += String.fromCharCode((c & 63) | 128);
+                    }
+                }
+                return utftext;
+            },
+            _utf8_decode: function (utftext) {
+                var string = "";
+                var i = 0;
+                var c = c1 = c2 = 0;
+                while (i < utftext.length) {
+                    c = utftext.charCodeAt(i);
+                    if (c < 128) {
+                        string += String.fromCharCode(c);
+                        i++;
+                    }
+                    else if ((c > 191) && (c < 224)) {
+                        c2 = utftext.charCodeAt(i + 1);
+                        string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
+                        i += 2;
+                    }
+                    else {
+                        c2 = utftext.charCodeAt(i + 1);
+                        c3 = utftext.charCodeAt(i + 2);
+                        string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+                        i += 3;
+                    }
+                }
+                return string;
+            }
+        };
+
+        $(document).ready(function () {
+            var query = 'SELECT * FROM offers_statistics WHERE offer_id = ' + $.cookieStorage.get('Offer').id;
+
+            var conditions = {
+                'General':{
+                    'query':query
+                }
+            };
+
+            var postData = JSON.stringify(conditions);
+
+            postData = {
+                'params': postData
+            };
+            var url = 'http://'+ip+'/api/General/get/query/' + createToken();
+
+
+            $.ajax({
+                method: "POST",
+                url: url,
+                data: postData
+            }).done(function(result) {
+                if(result != "ImE6MDp7fSI=") {
+                    var objReturn = JSON.parse(JSON.stringify(result));
+                    var decodeObjReturn = Base64.decode(objReturn);
+                    var convertedReturn = unserialize(JSON.parse(decodeObjReturn));
+                    for(var i=0; i<convertedReturn.length;i++){
+
+
+                        var cliques = (convertedReturn[i].offers_statistics.purchased_billet)/1 + 1;
+
+                        var query2 = 'UPDATE offers_statistics SET purchased_billet = '+cliques+' WHERE offer_id = ' + $.cookieStorage.get('Offer').id;
+
+                        var conditions2 = {
+                            'General':{
+                                'query':query2
+                            }
+                        };
+
+                        var postData2 = JSON.stringify(conditions2);
+
+                        postData2 = {
+                            'params': postData2
+                        };
+                        var url2 = 'http://'+ip+'/api/General/get/query/' + createToken();
+
+
+                        $.ajax({
+                            method: "POST",
+                            url: url2,
+                            data: postData2
+                        }).done(function(result) {
+                            if(result == "ImE6MDp7fSI=") {
+
+                            }
+
+                        }).error(function(XMLHttpRequest, textStatus, errorThrown) {
+                            alert(errorThrown);
+                        });
+                    }
+                }else{
+                    var query2 = 'INSERT INTO offers_statistics (purchased_billet, offer_id) VALUES (1, '+$.cookieStorage.get('Offer').id+')';
+                    console.log(query2);
+                    var conditions2 = {
+                        'General':{
+                            'query':query2
+                        }
+                    };
+
+                    var postData2 = JSON.stringify(conditions2);
+
+                    postData2 = {
+                        'params': postData2
+                    };
+                    var url2 = 'http://'+ip+'/api/General/get/query/' + createToken();
+
+
+                    $.ajax({
+                        method: "POST",
+                        url: url2,
+                        data: postData2
+                    }).done(function(result) {
+                        if(result == "ImE6MDp7fSI=") {
+
+                        }
+                    }).error(function(XMLHttpRequest, textStatus, errorThrown) {
+                        alert(errorThrown);
+                    });
+                }
+
+            }).error(function(XMLHttpRequest, textStatus, errorThrown) {
+                alert(errorThrown);
+            });
+
+
+
+        });
+
+
+
+
+
+    </script>
+    <div class="txtinfosenha">
+
+        <div class="col-md-12">
+            <img src="img/icons/Cartinha.png" class="cartinha">
+        </div>
+        <br>
+        Enviamos o boleto para o  para o seu e-mail.
+
+    </div>
+
+    <button type="button" class="btn btn-info btn-lg btn-block" onclick="window.location.href='home.html'">VOLTAR</button>
+    <div class="politicasdeprivacidade">
+        Termos de Uso • Politica de Privacidade
+    </div>
+</body>
+</html>

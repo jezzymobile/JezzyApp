@@ -1,0 +1,65 @@
+@font-face {
+
+    font-family: "Open Sans";
+    src: url("../../../fonte/OpenSans-Regular.ttf") format("truetype");
+
+}
+h1, h2,ul {
+	clear: both;
+}
+
+ul.pagination1 li:hover,
+ul.pagination2 li:hover,
+ul.pagination3 li:hover {
+	background-color: #2597ac;
+    color: #2597ac;
+}
+
+ul.pagination1 li,
+ul.pagination2 li,
+ul.pagination3 li {
+    padding: 10px;
+    font-family:"Open Sans";
+    font-size: 25px;
+    color: #2597ac;
+    line-height: 1;
+    margin-bottom: 1px;
+	list-style:none;
+}
+
+ul.red {
+	outline:10px solid #2597ac;
+}
+
+ul.simplePagerNav li{
+    display:block;
+    float: left;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-family: "Open Sans";
+	font-size:15px;
+}
+
+ul.simplePagerNav li a{
+    color: #2597ac;
+    text-decoration: none;
+}
+
+li.currentPage {
+
+    background: #2597ac;
+}
+
+ul.simplePagerNav li.currentPage a {
+	color: #fff;	
+}
+
+table.pageme {
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+}  
+
+table.pageme td {
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+}

@@ -1,0 +1,278 @@
+@font-face {
+
+    font-family: "Open Sans";
+    src: url("../../fonte/OpenSans-Regular.ttf") format("truetype");
+
+}
+.togglebar{
+    margin-top:15%;
+    width:100%;
+}
+.container {
+    margin-top: 0% !important;
+
+}
+.newAddressText {
+    font-size: 4.5vw;
+}
+.icone {
+    width: 10%;
+    padding: 1%;
+    margin-top: 2%;
+}
+.offerImageDisplay{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    height: 80%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    border-bottom: 1px solid #ABA14E ;
+}
+.offerImageDisplay2{
+    width:50%; /* you can use % */
+    border:1px solid #ABA14E;
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+.offerImageDisplay3{
+    width:50%; /* you can use % */
+    border:1px solid #ABA14E;
+    height: 600px;
+}
+.iconCardCheckout{
+    width: 24px;
+    float: right;
+    bottom:2%;
+    position:absolute;
+    margin-left: 70%;
+}
+.glyphicon:active{
+    color:#2497AC;
+}
+.glyphicon:hover{
+    color:#2497AC;
+}
+.offerOldPrice{
+    font-size: 10px;
+    color: #9b9b9b;
+    text-decoration: line-through;
+    margin-left: 4%;
+    display: block;
+    bottom:11%;
+    position:absolute;
+}
+.offerNewPrice{
+    color: #2497AC;
+    font-size: 18px;
+    margin-left: 4%;
+    bottom:0%;
+    position:absolute;
+}
+.container{
+    padding-left: 0% !important;
+    padding-right: 0% !important;
+}
+.button{
+    float:right;
+}
+.togglebardetail{
+    margin-top:14%;
+    width:100%;
+}
+.col-xs-12{
+    margin-left:0%!important;
+    margin-right:0%!important;
+    padding:0%!important;
+}
+.offerImageDisplaydetail{
+    float:left;
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    height: 90%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    padding:2%;
+}
+.btn-default {
+    border-color: transparent;
+    margin-top: 2%;
+    padding-top:2%;
+    border-radius:10%;
+    color: #ABA14E;
+}
+.cc-selector input:active +.drinkcard-cc{opacity:2;}
+.cc-selector input:checked +.drinkcard-cc{
+    -webkit-filter: none;
+    -moz-filter: none;
+    filter: none;
+    color:#2497AC;
+
+}
+.drinkcard-cc{
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width: 10%;
+    height:30px;
+    align-content:center;
+    -webkit-transition: all 100ms ease-in;
+    -moz-transition: all 100ms ease-in;
+    transition: all 100ms ease-in;
+    color:#2497AC;
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(1);
+    -moz-filter: brightness(1.2) grayscale(.5) opacity(1);
+    filter: brightness(1.2) grayscale(.5) opacity(1);
+
+}
+.drinkcard-cc:hover{
+    color:#2497AC;
+    -webkit-filter: brightness(1.6) grayscale(1) opacity(.5);
+    -moz-filter: brightness(1.6) grayscale(1) opacity(.5);
+    filter: brightness(1.6) grayscale(1) opacity(.5);
+
+}
+
+.cc-selector{
+    width:95%;
+    padding:0%;
+    margin-left:5%;
+
+}
+.cc-selector input{
+    margin:0;padding:0;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    display: none;
+}
+
+.glyphicon{
+
+    color: #ABA14E;
+}
+.offer_circledetail{
+    margin-left: 30%;
+    float:left;
+    position: absolute;
+    border-radius: 50%;
+    background-color:  #2497AC;
+    width:12%;
+    text-align: center;
+    top:5%;
+    color:white;
+    padding:1.5%;
+    font-size:3vw;
+}
+.offer_circle{
+    margin-left: 53%;
+    float:right;
+    position: absolute;
+    border-radius: 50%;
+    background-color:  #2497AC;
+    width:24%;
+    text-align: center;
+    top:5%;
+    color:white;
+    padding:4%;
+    font-size:3vw;
+}
+.containerdetail{
+    padding-right: 0%;
+    padding-left: 0%;
+}
+.bottomLine1{
+    border:0px solid #A9A055;
+    margin-top:29%;
+    position:absolute;
+    width:100%;
+}
+.offerImageDisplay2detail{
+    width:100%; /* you can use % */
+    border-bottom:2px solid #ABA14E;
+    border-left:1px solid #ABA14E;
+    position: relative;
+    height: 202px;
+    overflow: hidden;
+}
+.fb-share-button{
+    background-image:url(../../jezzy-mobile/public_html/img/icons/Compartilhar.png);
+    margin-top:0%;
+
+}
+.compartilhardouradodetail{
+    border:transparent;
+    margin-top:42%;
+    width: 32px;
+    bottom:0%;
+    position:absolute;
+    margin-left: 85%;
+    background-color:transparent;
+    background-image:url(../../jezzy-mobile/public_html/img/icons/Compartilhar.png);
+}
+.iconCardCheckoutdetail{
+    width: 33px;
+    float: right;
+    bottom:2%;
+    position:absolute;
+    margin-left: 75%;
+}
+.offerOldPricedetail{
+    float: right;
+    bottom:50%;
+    margin-left: 50%;
+    font-size: 3vw;
+    color: #9b9b9b;
+    text-decoration: line-through;
+    position: absolute;
+
+
+}
+.offerNewPricedetail{
+    bottom:38%;
+    color: #2497AC;
+    font-size: 5vw;
+    margin-left: 50%;
+    position: absolute;
+    float: right;
+
+}
+.offerNewPrice2detail{
+    bottom:38%;
+    color: #2497AC;
+    font-size: 3vw;
+    margin-left: 85%;
+    position: absolute;
+    float: right;
+
+
+}
+.titulodetail{
+
+    overflow: hidden;
+
+    float: right!important;
+    top:7%!important;
+    margin-left:50%!important;
+    font-size: 4vw;
+    color: #2497AC;
+    position: absolute!important;
+    width:48%;
+    height: 58px;
+    text-transform: uppercase;
+    font-weight: 500;
+
+}
+.offerParcelsdetail{
+    float: right;
+    bottom:30%;
+    margin-left: 50%;
+    font-size: 3vw;
+    color: #9b9b9b;
+    position: absolute;
+}
+

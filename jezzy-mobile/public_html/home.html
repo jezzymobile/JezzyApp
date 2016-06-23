@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jezzy</title>
+        <link rel="shortcut icon" href="img/icons/favicon.ico">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="lib/jasny-bootstrap/js/jasny-bootstrap.min.js"></script>
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="lib/jasny-bootstrap/css/jasny-bootstrap.min.css">
+        <link rel="stylesheet" href="css/page/base.css">
+        <script src="js/page/moment.js"></script>
+        <script src="js/page/configuracao.js"></script>
+        <script src="js/page/home.js"></script>
+        <link rel="stylesheet" href="css/page/home.css">
+        <script src="lib/jquery-storage/jquery.cookie.js"></script>
+        <script src="lib/jquery-storage/jquery.storageapi.min.js"></script>
+        <script src="lib/jquery-storage/json2.js"></script>
+        <script src="js/page/configuracao.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="js/page/jquery-confirm.min.js"></script>
+        <link rel="stylesheet" href="css/page/jquery-confirm.min.css">
+
+    </head>
+    <body onload="sendRequest();">
+    <script>
+        function testando()
+        {
+            var foto1 = document.getElementById("foto");
+            var foto2 = document.getElementById("foto2");
+            var div2 = document.getElementById("calendarServicesOptions");
+            var div3 = document.getElementById("offerServicesOptions");
+            var icon = document.getElementById("offerDisplayLink");
+            var icon2 = document.getElementById("calendarDisplayLink");
+            var altura1  = foto1.height;
+            var altura2  = foto2.height;
+            var largurafoto1 = foto1.width;
+            var largurafoto2 = foto2.width;
+
+            var margin1 = (Math.floor((largurafoto1-altura1))/2)/2;
+            var margin2 = (Math.floor((largurafoto2-altura2))/2)/2;
+
+
+
+            if(altura1<largurafoto1){
+                foto1.style.marginTop = margin1+"px";
+                foto1.style.marginBottom = margin1+"px";
+                div2.style.height = ((altura1+(margin1*2)))+"px";
+            } else{
+                div2.style.height = (altura1)+"px";
+            }
+           if(altura2<largurafoto2){
+               foto2.style.marginTop = margin2+"px";
+               foto2.style.marginBottom = margin2+"px";
+               div3.style.height = ((altura2+(margin2*2)))+"px";
+           }else{
+               div3.style.height = (altura2)+"px";
+           }
+
+            icon.style.marginTop ="50%";
+            icon2.style.marginTop = "50%";
+        }
+
+    </script>
+    <div id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas left-off-canvas-toggle"  data-disableScrolling="true" role="navigation">
+        <a class="navmenu-brand" id="userName" href="#">JEZZY</a>
+        <ul class="nav navmenu-nav">
+            <li class="active"><a href="home.html"><img src='img/icons/homeFooterIcon.PNG' class="icon-bar">HOME</a></li>
+            <li><a href="my_profile.html"><img src='img/icons/Usuario.png' class="icon-bar">PERFIL</a></li>
+            <li><a href="company_selection.html"  id="calendarServicesOptions2" ><img src='img/icons/NotificacoesDataagendada-01.png' class="icon-bar">AGENDAR</a></li>
+            <li><a href="offer_display.html"><img src='img/icons/offerFooterIcon.PNG' class="icon-bar">OFERTAS</a></li>
+            <li><a href="services_history.html"><img src='img/icons/Servicos.png' class="icon-bar">SERVIÇOS REALIZADOS</a></li>
+            <li><a href="offer_history.html"><img src='img/icons/cardFooterIcon.PNG' class="icon-bar">COMPRAS REALIZADAS</a></li>
+            <li><a href="notifications.html"><img src='img/icons/Sino.png' class="icon-bar">NOTIFICAÇÕES</a></li>
+            <li><a href="news.html"><img src='img/icons/feedNoticias.png' class="icon-bar">FEED/NOTÍCIAS</a></li>
+            <li><a href="vouchers_list.html"><img src='img/services/Voucher-02.png' class="icon-bar">MEUS VOUCHERS</a></li>
+            <li><a onclick="Sair();"><img src='img/icons/Sair%20-%20branco-07.png' class="icon-bar" onclick="Sair();">SAIR</a></li>
+        </ul>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-top centerLogoJezzy"  data-disableScrolling="true">
+            <span class="">
+                <img src="img/icons/logo_login.PNG" class="sizeLogo" />
+            </span>
+        <button type="button" class="navbar-toggle" data-toggle="offcanvas"  data-disableScrolling="true" data-target="#myNavmenu" data-canvas="body">
+            <img src="img/icons/Menu.png" class="menu" id="menu"/>
+        </button>
+            <span class="iconSearchJezzy" id="notify">
+                <img src="img/icons/Sino.png" class="menu" id="UserLink" />
+            </span>
+        <div class="bottomLine"></div>
+    </nav>
+
+    <div class="container exit-off-canvas" >
+
+        <div class="col-xs-12 preco" >
+            <div class="col-xs-6 imageServiceHomeId2" id="imageServiceHomeId2">
+
+
+            </div>
+            <div class="col-xs-6 calendarArea" id="calendarServicesOptions" >
+                <img src="img/icons/calendarFooterIcon.PNG" class="homeIconConfRight" id="calendarDisplayLink"/>
+                <p id="date" class="date"></p>
+            </div>
+        </div>
+
+        <div class="col-xs-12 preco">
+            <div class="col-xs-6 imageServiceHomeId" id="imageServiceHomeId">
+
+
+            </div>
+            <div class="col-xs-6 offerArea" id="offerServicesOptions"  >
+                <img src="img/icons/offerFooterIcon.PNG" class="homeIconConfRight" id="offerDisplayLink"/>
+                <p class="offerServiceTexts date"  id=offerServiceTexts"></p>
+            </div>
+        </div>
+
+<div class="col-xs-12">
+        <div class="col-xs-6">
+<div class="col-xs-12">
+            <div class="col-xs-6 colorDark">
+                <img src="img/icons/cardFooterIcon.PNG" class="homeIconConf" id="homeCardDivIcon"/>
+            </div>
+            <div class="col-xs-6  colorClear">
+                <img src="img/icons/Servicos.png" class="homeIconConf" id="offerIconDisplay"/>
+            </div>
+</div>
+            <div class="col-xs-12">
+            <div class="col-xs-6 colorClear">
+                <img src="img/services/Voucher-02.png" class="homeIconConf" id="servicesHistoryLink"/>
+            </div>
+            <div class="col-xs-6 colorDark">
+                <img src="img/icons/feedNoticias.png" class="homeIconConf" id="feedLink"/>
+            </div>
+                </div>
+        </div>
+        <div class="col-xs-6 ">
+            <div class="endSchedule" id="endSchedule">
+
+            </div>
+            <img src="img/icons/icone_mais.png" class="plusIcon" id="plusIcon" />
+        </div>
+        </div>
+
+    </div>
+
+
+    </body>
+</html>
